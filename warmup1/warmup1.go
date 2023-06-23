@@ -3,6 +3,7 @@ package warmup1
 import (
 	"fmt"
 	"math"
+	"strings"
 )
 
 func main() {
@@ -60,4 +61,16 @@ func PosNeg(a, b int, negative bool) bool {
 	} else {
 		return (a < 0 && b >= 0) || (a >= 0 && b < 0)
 	}
+}
+
+// Given a string, return a new string where "not " has been added to the front.
+// However, if the string already begins with "not", return the string unchanged.
+func NotString(sentence string) string {
+	firstWord := strings.Split(sentence, " ")[0]
+
+	if firstWord == "not" {
+		return sentence
+	}
+
+	return ("not " + sentence)
 }

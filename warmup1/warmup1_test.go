@@ -138,3 +138,21 @@ func TestPosNeg(t *testing.T) {
 		}
 	}
 }
+
+func TestNotString(t *testing.T) {
+	testCases := []struct {
+		value, expected string
+	}{
+		{"candy", "not candy"},
+		{"x", "not x"},
+		{"not bad", "not bad"},
+	}
+
+	for _, test := range testCases {
+		result := NotString(test.value)
+
+		if result != test.expected {
+			t.Errorf(`NotString("%v") FAILED. Expected %v, got %v`, test.value, test.expected, result)
+		}
+	}
+}
