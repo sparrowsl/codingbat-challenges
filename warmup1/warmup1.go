@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Warmup 1")
+	fmt.Println("CodingBat Warmup 1 in Go")
 }
 
 // The parameter weekday is True if it is a weekday, and the parameter vacation is True if we are on vacation.
@@ -73,4 +73,20 @@ func NotString(sentence string) string {
 	}
 
 	return ("not " + sentence)
+}
+
+// Given a non-empty string and an int n,
+// return a new string where the char at index n has been removed.
+// The value of n will be a valid index of a char in the original string
+// (i.e. n will be in the range 0..len(str)-1 inclusive).
+func MissingChar(sentence string, n int) string {
+	var finalString string
+
+	for i, char := range sentence {
+		if i != n {
+			finalString += string(char)
+		}
+	}
+
+	return finalString
 }

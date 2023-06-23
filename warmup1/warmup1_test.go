@@ -156,3 +156,23 @@ func TestNotString(t *testing.T) {
 		}
 	}
 }
+
+func TestMissingChar(t *testing.T) {
+	testCases := []struct {
+		value    string
+		index    int
+		expected string
+	}{
+		{"kitten", 1, "ktten"},
+		{"kitten", 0, "itten"},
+		{"kitten", 4, "kittn"},
+	}
+
+	for _, test := range testCases {
+		result := MissingChar(test.value, test.index)
+
+		if result != test.expected {
+			t.Errorf("MissingChar(%v, %v) FAILED. Expected %v, got %v", test.value, test.index, test.expected, result)
+		}
+	}
+}
