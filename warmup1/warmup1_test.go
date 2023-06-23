@@ -176,3 +176,21 @@ func TestMissingChar(t *testing.T) {
 		}
 	}
 }
+
+func TestFrontBack(t *testing.T) {
+	testCases := []struct {
+		word, expected string
+	}{
+		{"code", "eodc"},
+		{"a", "a"},
+		{"ab", "ba"},
+	}
+
+	for _, test := range testCases {
+		result := FrontBack(test.word)
+
+		if result != test.expected {
+			t.Errorf("FrontBack(%v) FAILED. Expected %v, got %v", test.word, test.expected, result)
+		}
+	}
+}

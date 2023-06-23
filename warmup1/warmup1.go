@@ -8,6 +8,7 @@ import (
 
 func main() {
 	fmt.Println("CodingBat Warmup 1 in Go")
+	// fmt.Println(FrontBack("testi"))
 }
 
 // The parameter weekday is True if it is a weekday, and the parameter vacation is True if we are on vacation.
@@ -89,4 +90,18 @@ func MissingChar(sentence string, n int) string {
 	}
 
 	return finalString
+}
+
+// Given a string, return a new string where the first and last chars have been exchanged.
+func FrontBack(word string) string {
+	if len(word) <= 1 {
+		return word
+	}
+
+	splitted := strings.Split(word, "")
+	firstChar := splitted[0]
+	lastChar := splitted[len(word)-1]
+	remaining := splitted[1 : len(word)-1]
+
+	return lastChar + strings.Join(remaining, "") + firstChar
 }
