@@ -98,10 +98,20 @@ func FrontBack(word string) string {
 		return word
 	}
 
-	splitted := strings.Split(word, "")
-	firstChar := splitted[0]
-	lastChar := splitted[len(word)-1]
-	remaining := splitted[1 : len(word)-1]
+	firstChar := word[0]
+	lastChar := word[len(word)-1]
+	remaining := word[1 : len(word)-1]
 
-	return lastChar + strings.Join(remaining, "") + firstChar
+	return string(lastChar) + remaining + string(firstChar)
+}
+
+// Given a string, we'll say that the front is the first 3 chars of the string.
+// If the string length is less than 3, the front is whatever is there.
+// Return a new string which is 3 copies of the front.
+func Front3(word string) string {
+	if len(word) < 3 {
+		return strings.Repeat(word, 3)
+	}
+
+	return strings.Repeat(word[:3], 3)
 }

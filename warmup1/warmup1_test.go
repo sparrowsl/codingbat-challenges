@@ -194,3 +194,21 @@ func TestFrontBack(t *testing.T) {
 		}
 	}
 }
+
+func TestFront3(t *testing.T) {
+	testCases := []struct {
+		word, expected string
+	}{
+		{"Java", "JavJavJav"},
+		{"Chocolate", "ChoChoCho"},
+		{"abc", "abcabcabc"},
+	}
+
+	for _, test := range testCases {
+		result := Front3(test.word)
+
+		if result != test.expected {
+			t.Errorf("Front3(%v) FAILED. Expected %v, got %v", test.word, test.expected, result)
+		}
+	}
+}
