@@ -8,7 +8,6 @@ import (
 
 func main() {
 	fmt.Println("CodingBat Warmup 1 in Go")
-	// fmt.Println(FrontBack("testi"))
 }
 
 // The parameter weekday is True if it is a weekday, and the parameter vacation is True if we are on vacation.
