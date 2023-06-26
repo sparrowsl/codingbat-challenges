@@ -98,3 +98,22 @@ func Test_arrayFront(t *testing.T) {
 		}
 	}
 }
+
+func Test_array123(t *testing.T) {
+	testCases := []struct {
+		array    []int
+		expected bool
+	}{
+		{[]int{1, 1, 2, 3, 1}, true},
+		{[]int{1, 1, 2, 4, 1}, false},
+		{[]int{1, 1, 2, 1, 2, 3}, true},
+	}
+
+	for _, test := range testCases {
+		result := array123(test.array)
+
+		if result != test.expected {
+			t.Errorf("array123(%v) FAILED. Expected %v, got %v", test.array, test.expected, result)
+		}
+	}
+}

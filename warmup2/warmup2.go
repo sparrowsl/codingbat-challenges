@@ -52,5 +52,22 @@ func arrayCount(array []int) int {
 // Given an array of ints, return True if one of the first 4 elements in the array is a 9.
 // The array length may be less than 4.
 func arrayFront(array []int) bool {
+	toString := fmt.Sprint(array[:4])
+	if strings.Contains(toString, "9") {
+		return true
+	}
+
+	return false
+}
+
+// Given an array of ints, return True if the sequence of numbers 1, 2, 3 appears in the array somewhere.
+func array123(array []int) bool {
+	toString := fmt.Sprint(array)
+	if strings.ContainsRune(toString, '2') &&
+		strings.ContainsRune(toString, '1') &&
+		strings.ContainsRune(toString, '3') {
+		return true
+	}
+
 	return false
 }
