@@ -109,3 +109,93 @@ func Test_firstTwo(t *testing.T) {
 		}
 	}
 }
+
+func Test_firstHalf(t *testing.T) {
+	testCases := []struct {
+		word, expected string
+	}{
+		{"WooHoo", "Woo"},
+		{"HelloThere", "Hello"},
+		{"abcdef", "abc"},
+	}
+
+	for _, test := range testCases {
+		result := firstHalf(test.word)
+
+		if result != test.expected {
+			t.Errorf("firstHalf(%q) FAILED. Expected %q, got %q", test.word, test.expected, result)
+		}
+	}
+}
+
+func Test_withoutEnd(t *testing.T) {
+	testCases := []struct {
+		word, expected string
+	}{
+		{"Java", "av"},
+		{"Hello", "ell"},
+		{"coding", "odin"},
+	}
+
+	for _, test := range testCases {
+		result := withoutEnd(test.word)
+
+		if result != test.expected {
+			t.Errorf("withoutEnd(%q) FAILED. Expected %q, got %q", test.word, test.expected, result)
+		}
+	}
+}
+
+func Test_comboString(t *testing.T) {
+	testCases := []struct {
+		a, b, expected string
+	}{
+		{"hi", "Hello", "hiHellohi"},
+		{"Hello", "hi", "hiHellohi"},
+		{"aaa", "b", "baaab"},
+	}
+
+	for _, test := range testCases {
+		result := comboString(test.a, test.b)
+
+		if result != test.expected {
+			t.Errorf("comboString(%q, %q) FAILED. Expected %q, got %q", test.a, test.b, test.expected, result)
+		}
+	}
+}
+
+func Test_nonStart(t *testing.T) {
+	testCases := []struct {
+		a, b, expected string
+	}{
+		{"Hello", "There", "ellohere"},
+		{"java", "code", "avaode"},
+		{"shotl", "java", "hotlava"},
+	}
+
+	for _, test := range testCases {
+		result := nonStart(test.a, test.b)
+
+		if result != test.expected {
+			t.Errorf("nonStart(%q, %q) FAILED. Expected %q, got %q", test.a, test.b, test.expected, result)
+		}
+	}
+}
+
+func Test_left2(t *testing.T) {
+	testCases := []struct {
+		word, expected string
+	}{
+		{"Hello", "lloHe"},
+		{"java", "vaja"},
+		{"Hi", "Hi"},
+	}
+
+	for _, test := range testCases {
+		result := left2(test.word)
+
+		if result != test.expected {
+			t.Errorf("left2(%q) FAILED. Expected %q, got %q", test.word, test.expected, result)
+		}
+	}
+}
