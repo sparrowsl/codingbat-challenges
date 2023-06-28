@@ -55,3 +55,57 @@ func Test_makeTags(t *testing.T) {
 		}
 	}
 }
+
+func Test_makeOutWord(t *testing.T) {
+	testCases := []struct {
+		out, word, expected string
+	}{
+		{"<<>>", "Yay", "<<Yay>>"},
+		{"<<>>", "WooHoo", "<<WooHoo>>"},
+		{"[[]]", "word", "[[word]]"},
+	}
+
+	for _, test := range testCases {
+		result := makeOutWord(test.out, test.word)
+
+		if result != test.expected {
+			t.Errorf("makeOutWord(%q, %q) FAILED. Expected %q, got %q", test.out, test.word, test.expected, result)
+		}
+	}
+}
+
+func Test_extraEnd(t *testing.T) {
+	testCases := []struct {
+		word, expected string
+	}{
+		{"Hello", "lololo"},
+		{"ab", "ababab"},
+		{"Hi", "HiHiHi"},
+	}
+
+	for _, test := range testCases {
+		result := extraEnd(test.word)
+
+		if result != test.expected {
+			t.Errorf("extraEnd(%q) FAILED. Expected %q, got %q", test.word, test.expected, result)
+		}
+	}
+}
+
+func Test_firstTwo(t *testing.T) {
+	testCases := []struct {
+		word, expected string
+	}{
+		{"Hello", "He"},
+		{"abcdefg", "ab"},
+		{"ab", "ab"},
+	}
+
+	for _, test := range testCases {
+		result := firstTwo(test.word)
+
+		if result != test.expected {
+			t.Errorf("firstTwo(%q) FAILED. Expected %q, got %q", test.word, test.expected, result)
+		}
+	}
+}
